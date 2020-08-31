@@ -7,8 +7,14 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 const db = require('./config/database')
+
+//Variaveis de ampiente
+const dbUser = process.env.DB_USER
+const dbPass = process.env.DB_PASS
+const dbName = process.env.DB_NAME
+
 //Versão sem senha
-//db(mongodb+srv://alysson:<password>@cluster0.z7gyu.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority)
+db(`mongodb+srv://${dbUser}:${dbPass}@cluster0.z7gyu.gcp.mongodb.net/${dbName}?retryWrites=true&w=majority`)
 
 var app = express();
 
