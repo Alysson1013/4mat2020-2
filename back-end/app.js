@@ -13,6 +13,7 @@ const dbUser = process.env.DB_USER
 const dbPass = process.env.DB_PASS
 const dbName = process.env.DB_NAME
 
+//Puxando Banco de Dados
 //Versão sem senha
 db(`mongodb+srv://${dbUser}:${dbPass}@cluster0.z7gyu.gcp.mongodb.net/${dbName}?retryWrites=true&w=majority`)
 
@@ -30,5 +31,9 @@ app.use('/users', usersRouter);
 const teste = require("./routes/teste")
 
 app.use("/teste", teste)
+
+//Rota para curso
+const curso = require('./routes/curso')
+app.use('/curso', curso)
 
 module.exports = app;

@@ -32,4 +32,6 @@ const esquema = mongoose.Schema({
 // 3º -> o nome da COLEÇÃO no BD que irá receber os objetos que serão
 //       criados a partir deste model (inicial minuscula, plural do
 //       nome do model)
+
+//Exportando Models
 module.exports = mongoose.model('Curso', esquema, 'cursos')
