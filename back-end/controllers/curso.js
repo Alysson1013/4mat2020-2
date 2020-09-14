@@ -48,12 +48,40 @@ controller.novo = async (req, res) => {
         res.status(201).end()
     }
     //cacth é chamado quando o await do try retorna um erro na criação/
-    catch(erro){
+    catch (erro) {
         console.error(erro)
         //Retorna protocolor 500
         //HTTP 500: Internal Server Error
         res.status(500).send(erro)
     }
+}
+
+//Método listar(), implementando RETRIEVE (all)
+//Todo await, necessita de um async
+controller.listar = async (req, res) => {
+    try {
+        //find() sem parametros é para trazer tudo do Banco de Dados Curso
+        let dados = await Curso.find()
+        res.send(dados)
+    }
+    catch(erro){
+        //caso dê erro
+        console.log(erro) //Vai com status HTTP: 200
+        res.status(500).send(erro)
+    }
+    
+}
+
+//Metodo obterUm, implementando a operação RETRIEVE (one)
+controller.obterUm = async (req, res) => {
+    const id = req.params.id //capturando o parametro id
+    let obj = await Curso.findById(id) //Capturando o parametro id
+
+    //Se o objeto estiver preechido(achou), então o retornamos
+    if (obj) res.send(obj)
+    //Senão (Objeto Vazio), enviamos o status HTTP 404: Not Found
+    else res.status(404).end()
+
 }
 
 //Exportação do Objeto
