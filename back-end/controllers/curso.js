@@ -64,12 +64,12 @@ controller.listar = async (req, res) => {
         let dados = await Curso.find()
         res.send(dados)
     }
-    catch(erro){
+    catch (erro) {
         //caso dê erro
         console.log(erro) //Vai com status HTTP: 200
         res.status(500).send(erro)
     }
-    
+
 }
 
 //Metodo obterUm, implementando a operação RETRIEVE (one)
@@ -84,5 +84,40 @@ controller.obterUm = async (req, res) => {
 
 }
 
+//Método atualizar(), implementando a operação UPDATE
+controller.atualizar = async (req, res) => {
+    try {
+        //Isolar o _id do objeto para fins de busca
+        const id = req.body._id
+        //Busca o objeto pelo id e, encontrando-o substitui o conteudo por req.body
+        let obj = await Curso.findByIdAndUpdate(id, req.body)
+
+        //Se encontrou e substitui, retornamos o HTTP 204: No content
+        if (obj) res.status(204).end()
+        //Caso contrário, retorna HTTP 404: Not Found
+        else res.status(404).end()
+    } catch {
+        console.error(erro)
+        res.status(500).end()
+    }
+}
+
+//Método excluir(), implementando a operação DELETE
+controller.excluir = async (req, res) => {
+    try {
+        //Isolando o ID para exclusão 
+        const id = req.body._id
+        //Bucar e deletar por id
+        let obj = await Curso.findByIdAndDelete(id)
+
+        //Encontra e exclui
+        if (obj) res.status(204).end()
+        //Objeto não foi encontrado para exclusão
+        else res.status(404).end()
+    } catch (erro) {
+        console.error(erro)
+        res.status(500).send(erro)
+    }
+}
 //Exportação do Objeto
 module.exports = controller
