@@ -8,7 +8,8 @@ module.exports = uri => {
     mongoose.connect(uri, {
         //Suprimindo Warning
         useNewUrlParser: true,
-        useUnifiedTopology: true
+        useUnifiedTopology: true,
+        useCreateIndex: true
     })
 
     mongoose.connection.on('connected', () => {
