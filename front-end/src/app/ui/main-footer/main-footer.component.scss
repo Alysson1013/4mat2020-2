@@ -1,0 +1,26 @@
+mat-toolbar {
+    //Centralizar os itens
+    justify-content: center;
+    //ajustar fontes
+    font-size: 90%;
+    //Altura
+    height: 32px;
+    //Colocando no fim
+    position: fixed;
+    bottom: 0;
+    //Deixando margem superior para não esconder o conteudo
+    margin-top: 32px;
+
+    mat-icon{
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+}
+}
+
+//CSS puro
+/*mat-toolbar  mat-icon{
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+} */
