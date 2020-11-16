@@ -1,1 +1,27 @@
-<p>curso-form works!</p>
+<h1>{{title}}</h1>
+
+<form class="std-form">
+    <mat-form-field>
+        <mat-label>Nome do Curso</mat-label>
+        <input name="nome" [(ngModel)]="curso.nome" matInput required placeholder="Infome o nome do curso">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Carga Horária</mat-label>
+        <input name="carga_horaria" [(ngModel)]="curso.carga_horaria" matInput required placeholder="Infome a carga horaria do curso.">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Nível</mat-label>
+        <mat-select name="nivel" [(ngModel)]="curso.nivel" required> 
+            <mat-option *ngFor="let nivel of niveis" [value]="nivel.valor">
+                {{nivel.descr}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+     <mat-form-field>
+        <mat-label>Valor do Curso</mat-label>
+        <input name="valor_curso" [(ngModel)]="curso.valor_curso" matInput required placeholder="Informe o valor do curso">
+    </mat-form-field>
+</form>

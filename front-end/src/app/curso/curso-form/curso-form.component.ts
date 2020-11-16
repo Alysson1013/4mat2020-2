@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CursoFormComponent implements OnInit {
 
+  title : String = 'Novo Curso'
+
+  curso : any = {}
+
+  niveis : any = [
+      {valor: "Básico", descr: "Básico"},
+      {valor: "Intermediário", descr: "Intermediário"},
+      {valor: "Avaçado", descr: "Avançado"}
+  ]
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  salvar(form){
+      
   }
 
 }

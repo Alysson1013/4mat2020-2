@@ -7,7 +7,7 @@ const routes: Routes = [
     //rotas no angular NUNCA começam com /
     {path: 'curso', component: CursoListComponent},
     {path: 'curso/novo', component: CursoFormComponent },
-    {path: 'curso/:id', component: CursoFormComponent}
+    {path: 'curso/:id', component: CursoFormComponent},
 ];
 
 @NgModule({
