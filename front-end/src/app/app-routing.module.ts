@@ -1,3 +1,4 @@
+import { TurmaFormComponent } from './turma/turma-form/turma-form.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CursoListComponent } from './curso/curso-list/curso-list.component';
@@ -10,7 +11,10 @@ const routes: Routes = [
     {path: 'curso', component: CursoListComponent},
     {path: 'curso/novo', component: CursoFormComponent },
     {path: 'curso/:id', component: CursoFormComponent},
-    {path: 'turma', component: TurmaListComponent}
+
+    {path: 'turma', component: TurmaListComponent},
+    {path: 'turma/novo', component: TurmaFormComponent},
+    {path: 'turma/:id', component: TurmaFormComponent}
 ];
 
 @NgModule({
